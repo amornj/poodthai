@@ -1,3 +1,7 @@
+if (window.__poodthaiLoaded) {
+  // Already injected — skip re-init
+} else {
+window.__poodthaiLoaded = true;
 (() => {
   const DEFAULTS = { speed: 1, volume: 1 };
   let settings = { ...DEFAULTS };
@@ -276,3 +280,4 @@
     }
   });
 })();
+} // end __poodthaiLoaded guard

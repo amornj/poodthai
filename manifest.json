@@ -3,7 +3,7 @@
   "name": "Poodthai",
   "version": "1.0.0",
   "description": "Highlight Thai text and hear it spoken aloud with a natural Thai voice. Free forever.",
-  "permissions": ["activeTab", "contextMenus", "storage"],
+  "permissions": ["activeTab", "contextMenus", "storage", "scripting"],
   "action": {
     "default_icon": {
       "16": "icons/icon16.png",
@@ -23,13 +23,6 @@
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"],
-      "css": ["content.css"]
-    }
-  ],
   "commands": {
     "play-selection": {
       "suggested_key": {

@@ -6,25 +6,35 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+// Inject content script + CSS on demand, then send a message
+async function injectAndSpeak(tabId, message) {
+  await chrome.scripting.insertCSS({
+    target: { tabId },
+    files: ["content.css"],
+  });
+  await chrome.scripting.executeScript({
+    target: { tabId },
+    files: ["content.js"],
+  });
+  chrome.tabs.sendMessage(tabId, message);
+}
+
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "poodthai-read" && info.selectionText) {
-    chrome.tabs.sendMessage(tab.id, {
-      action: "speak",
-      text: info.selectionText,
-    });
+    injectAndSpeak(tab.id, { action: "speak", text: info.selectionText });
   }
 });
 
 // Click extension icon → speak selected text
 chrome.action.onClicked.addListener((tab) => {
-  chrome.tabs.sendMessage(tab.id, { action: "speak-selection" });
+  injectAndSpeak(tab.id, { action: "speak-selection" });
 });
 
 chrome.commands.onCommand.addListener((command) => {
   if (command === "play-selection") {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       if (tabs[0]) {
-        chrome.tabs.sendMessage(tabs[0].id, { action: "speak-selection" });
+        injectAndSpeak(tabs[0].id, { action: "speak-selection" });
       }
     });
   }
