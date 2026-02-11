@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <div class="header">
+      <div class="logo">พูดไทย</div>
+      <div class="subtitle">Thai Text-to-Speech</div>
+    </div>
+
+    <div class="section">
+      <div class="setting-row">
+        <label for="speed">Speed</label>
+        <div class="slider-group">
+          <input type="range" id="speed" min="0.5" max="2" step="0.1" value="1">
+          <span id="speed-val">1.0x</span>
+        </div>
+      </div>
+
+      <div class="setting-row">
+        <label for="volume">Volume</label>
+        <div class="slider-group">
+          <input type="range" id="volume" min="0" max="1" step="0.05" value="1">
+          <span id="volume-val">100%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section voice-info">
+      <div class="voice-label">Voice:</div>
+      <div id="voice-name">Detecting...</div>
+    </div>
+
+    <div id="no-voice-guide" class="section guide" style="display:none">
+      <div class="guide-title">No Thai voice found!</div>
+      <div class="guide-os" id="guide-mac">
+        <p><strong>macOS setup:</strong></p>
+        <ol>
+          <li>Open <strong>System Settings</strong></li>
+          <li>Go to <strong>Accessibility</strong> &rarr; <strong>Spoken Content</strong></li>
+          <li>Click <strong>System Voice</strong> &rarr; <strong>Manage Voices...</strong></li>
+          <li>Search <strong>"Thai"</strong> &rarr; Download <strong>Kanya</strong></li>
+          <li>Restart Chrome after download</li>
+        </ol>
+      </div>
+      <div class="guide-os" id="guide-win" style="display:none">
+        <p><strong>Windows setup:</strong></p>
+        <ol>
+          <li>Open <strong>Settings</strong> &rarr; <strong>Time & Language</strong></li>
+          <li>Click <strong>Language & region</strong> &rarr; <strong>Add a language</strong></li>
+          <li>Search <strong>"Thai"</strong> and install it</li>
+          <li>Make sure <strong>Text-to-speech</strong> is checked</li>
+          <li>Restart Chrome after install</li>
+        </ol>
+      </div>
+      <div class="guide-os" id="guide-linux" style="display:none">
+        <p><strong>Linux setup:</strong></p>
+        <ol>
+          <li>Install espeak-ng: <code>sudo apt install espeak-ng</code></li>
+          <li>Or use Chrome — it may include Google Thai voice online</li>
+          <li>Restart Chrome after install</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section hint">
+      <p>Highlight Thai text on any page, then:</p>
+      <ul>
+        <li>Right-click &rarr; <strong>Read with Poodthai</strong></li>
+        <li>Or press <kbd>Alt</kbd> + <kbd>P</kbd></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

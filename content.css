@@ -1,0 +1,147 @@
+/* ── Poodthai Floating Player ──────────────────────────────── */
+#poodthai-player {
+  all: initial;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2147483647;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+#poodthai-player.poodthai-visible {
+  transform: translateY(0);
+}
+
+#poodthai-player .poodthai-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  padding: 8px 16px;
+  box-shadow: 0 2px 12px rgba(109, 40, 217, 0.4);
+  font-size: 14px;
+  line-height: 1;
+}
+
+#poodthai-player .poodthai-brand {
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+#poodthai-player .poodthai-text-display {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  opacity: 0.85;
+  padding: 0 8px;
+}
+
+#poodthai-player .poodthai-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+#poodthai-player .poodthai-btn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.15s;
+}
+
+#poodthai-player .poodthai-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#poodthai-player .poodthai-play-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+#poodthai-player .poodthai-play-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Speed & Volume */
+#poodthai-player .poodthai-speed,
+#poodthai-player .poodthai-volume {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 4px;
+}
+
+#poodthai-player .poodthai-speed label {
+  font-size: 11px;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#poodthai-player .poodthai-speed-val {
+  font-size: 11px;
+  min-width: 28px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+#poodthai-player input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 60px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+#poodthai-player input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Close button */
+#poodthai-player .poodthai-close {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.6;
+  border-radius: 50%;
+  transition: opacity 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+#poodthai-player .poodthai-close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+}
