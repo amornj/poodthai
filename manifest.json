@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Poodthai",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Highlight Thai text and hear it spoken aloud with a natural Thai voice. Free forever.",
   "permissions": ["activeTab", "contextMenus", "storage", "scripting"],
   "action": {
